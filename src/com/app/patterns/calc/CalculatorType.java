@@ -1,7 +1,7 @@
 package com.app.patterns.calc;
 
 public enum CalculatorType {
-    SwitchCalculator,
+    StrategyCalculator,
     CorCalculator,
     TemplateCalculator
 }

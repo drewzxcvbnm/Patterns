@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         CalculatorFactory factory = new CalculatorFactory();
         System.out.println("SwitchCalculator:");
-        Calculator switchCalculator = factory.getCalculator(CalculatorType.SwitchCalculator);
+        Calculator switchCalculator = factory.getCalculator(CalculatorType.StrategyCalculator);
         System.out.println("Result: " + switchCalculator.eval(1, 2, ADD));
         System.out.println("Result: " + switchCalculator.eval(4, 2, SUB));
 
