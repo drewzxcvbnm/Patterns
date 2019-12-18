@@ -2,15 +2,15 @@ package com.app.patterns.factory;
 
 import com.app.patterns.calc.Calculator;
 import com.app.patterns.calc.CalculatorType;
-import com.app.patterns.calc.strategy.StrategyCalculator;
 import com.app.patterns.calc.cor.CorCalculator;
+import com.app.patterns.calc.strategy.StrategyCalculator;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * Pattern: Factory method (Creational)
+ * Pattern : Factory method (Creational)
  */
 public class CalculatorFactory {
 

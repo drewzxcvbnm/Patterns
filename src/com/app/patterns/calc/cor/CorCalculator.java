@@ -6,7 +6,7 @@ import com.app.patterns.calc.Operation;
 import com.app.patterns.calc.cor.handlers.*;
 
 /**
- * Pattern: Chain of Responsibility (Behavioral)
+ * Pattern : Chain of Responsibility (Behavioral)
  */
 public class CorCalculator implements Calculator {
 

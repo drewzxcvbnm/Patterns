@@ -4,39 +4,30 @@ import com.app.patterns.calc.Calculator;
 import com.app.patterns.calc.CalculatorType;
 import com.app.patterns.calc.Operation;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.app.patterns.calc.Operation.*;
+
 /**
- * Pattern: Strategy (Behavioral)
+ * Pattern : Strategy (Behavioral)
  */
 public class StrategyCalculator implements Calculator {
 
+    private final Map<Operation, CalculationStrategy> strategies = new HashMap<>();
     private CalculationStrategy strategy;
+
+    {
+        strategies.put(ADD, new AdditionStrategy());
+        strategies.put(SUB, new SubtractionStrategy());
+        strategies.put(MUL, new MultiplicationStrategy());
+        strategies.put(DIV, new DivisionStrategy());
+        strategies.put(POW, new ExponentiationStrategy());
+    }
 
     @Override
     public double eval(double operand1, double operand2, Operation op) {
-        switch (op) {
-            case ADD:
-                System.out.println(String.format("%s: %s + %s", getType(), operand1, operand2));
-                strategy = new AdditionStrategy();
-                break;
-            case SUB:
-                System.out.println(String.format("%s: %s - %s", getType(), operand1, operand2));
-                strategy = new SubtractionStrategy();
-                break;
-            case MUL:
-                System.out.println(String.format("%s: %s * %s", getType(), operand1, operand2));
-                strategy = new MultiplicationStrategy();
-                break;
-            case DIV:
-                System.out.println(String.format("%s: %s / %s", getType(), operand1, operand2));
-                strategy = new DivisionStrategy();
-                break;
-            case POW:
-                System.out.println(String.format("%s: %s ^ %s", getType(), operand1, operand2));
-                strategy = new ExponentiationStrategy();
-                break;
-            default:
-                throw new UnsupportedOperationException();
-        }
+        strategy = strategies.get(op);
         return strategy.calculate(operand1, operand2);
     }
 
